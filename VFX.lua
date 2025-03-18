@@ -74,6 +74,31 @@ wc.Part1 = Torso
 
 game.workspace.Cutscenes.Atoms.sphere.Color = Color3.new(0,0,0)
 game.workspace.Cutscenes.Atoms.sphere.Material = Enum.Material.Neon
+local gui = game.ReplicatedStorage.Resources.BossHP2:Clone()
+gui.Parent = plr.PlayerGui
+for i, v in pairs(gui.Frame:GetChildren()) do
+	if v.Name == "ImageLabel" then 
+		v:Destroy()
+	end
+	
+	if v.Name == "TextLabel" then
+		if v.Text == "ONLYTWENTYCHARACTERS" then
+			v.Text = string.upper(plr.Name)
+			v.TextLabel.Text = string.upper(plr.Name)
+		else
+			v.Text = "1x1x1x1"
+		end
+	end
+end
+gui.Frame.Border.Red.Color = Color3.new(0,1,0)
+gui.Frame.Border.Color = Color3.new(0,0,0)
+
+task.spawn(function()
+	while task.wait(0.1) do	
+		gui.Frame.Border.Red.Size = UDim2.new(humanoid.Health / humanoid.MaxHealth, 0, 1, 0)
+	end
+end)
+
 
 for i, orb in pairs(game.workspace.Cutscenes.Atoms.sphere.Model:GetDescendants()) do
 	if orb:IsA("BasePart") then
