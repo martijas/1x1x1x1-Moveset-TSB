@@ -12,14 +12,16 @@ emitter.Color = ColorSequence.new(Color3.fromRGB(0, 255, 0), Color3.fromRGB(0, 1
 emitter.Rate = 0
 emitter.Size = NumberSequence.new(0.4)
 
+plr.PlayerGui.ScreenGui.MagicHealth.TextLabel.Text = "K̵̗̟̆į̶̫͐n̶̜̋̕g̸̳͆̚ ̶͇͋O̷̢͇͊f̸̥̈ ̷̌́ͅẺ̸̡̞̈x̷̙͓͂͝p̵̢̦̌l̷̮̃͝ó̶̹ï̴̢̟̌t̴̫͖̒s̵̘͈̋"
+
 task.spawn(function()
 	game["Run Service"].RenderStepped:Connect(function()
 		if rootPart then
 			-- Generate a random small rotation (±2 degrees)
 			local randomRotation = CFrame.Angles(
-				math.rad(math.random(-2, 2)), 
-				math.rad(math.random(-2, 2)), 
-				math.rad(math.random(-2, 2))
+				math.rad(math.random(-1, 1)), 
+				math.rad(math.random(-1, 1)), 
+				math.rad(math.random(-1, 1))
 			)
 
 			-- Apply the rotation to the current CFrame
