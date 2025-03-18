@@ -87,16 +87,17 @@ for i, v in pairs(gui.Frame:GetChildren()) do
 			v.TextLabel.Text = string.upper(plr.Name)
 		else
 			v.Text = "1x1x1x1"
+			v.TextLabel.Text = "1x1x1x1"
 		end
 	end
 end
-gui.Frame.Border.Red.Color = Color3.new(0,1,0)
-gui.Frame.Border.Color = Color3.new(0,0,0)
+gui.Frame.Border.Red.ImageColor3 = Color3.new(0,1,0)
+gui.Frame.Border.ImageColor3 = Color3.new(0,0,0)
 
 task.spawn(function()
-	while task.wait(0.1) do	
+	game["Run Service"].RenderStepped:Connect(function()
 		gui.Frame.Border.Red.Size = UDim2.new(humanoid.Health / humanoid.MaxHealth, 0, 1, 0)
-	end
+	end)
 end)
 
 
