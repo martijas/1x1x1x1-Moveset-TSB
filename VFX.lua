@@ -1,6 +1,6 @@
 local plr = game.Players.LocalPlayer
 
-task.wait(4)
+task.wait(1)
 local char = plr.Character or plr.CharacterAdded:Wait()
 local humanoid = char:FindFirstChildOfClass("Humanoid")
 local rootPart = char:WaitForChild("HumanoidRootPart") -- Ensure HumanoidRootPart exists
@@ -12,7 +12,7 @@ emitter.Color = ColorSequence.new(Color3.fromRGB(0, 255, 0), Color3.fromRGB(0, 1
 emitter.Rate = 0
 emitter.Size = NumberSequence.new(0.4)
 
-plr.PlayerGui.ScreenGui.MagicHealth.TextLabel.Text = "K̵̗̟̆į̶̫͐n̶̜̋̕g̸̳͆̚ ̶͇͋O̷̢͇͊f̸̥̈ ̷̌́ͅẺ̸̡̞̈x̷̙͓͂͝p̵̢̦̌l̷̮̃͝ó̶̹ï̴̢̟̌t̴̫͖̒s̵̘͈̋"
+plr.PlayerGui.ScreenGui.MagicHealth.TextLabel.Text = "Ķ̷̭͚͙̝̯̖̫̫̲͔͕̦̠̰͇̲̿͐̓͂̈́̒̉̏̅͊͑̎̆̐̀̄̋͊̾̅̚͘͠į̸̛̱͎̳̝̬̹̱̹͈͎̥̗͈̲̥̄̈̿̓̆ͅn̵̛̛̤̿͐͆̆̆̏͌͋̄͆̅̑͒̒͒͆͑̅͛͠͝g̴̛̛̣͉͔͓̖̳̤̯̩͊̌̀̽̍͗̈̐͊̂́͗̔́͗͝͝͠ ̵̢̡̡̡̞̝̗̟͉̲̗͉͔̞̙̝̗͚͉̞͇̫̥͔̐͗̀͛͗͜ͅƠ̴̢̧̡̨̛͖̫̳̘̳͕̣̯̺̱̺̮̇̈́͐͆̾͋̈̈́̓̑̎̌̂̀̌͂̊̔̉͋̐́͘͘͘f̸̥͓̥̗̹͉̟͔̭͓̠̺̭͑̌̀͆͊͛͌͒̈́ ̴͈̪̓̅̒͂̒͐̓̿̈́͗̈̊͋͊̈͆̓̑̔̍̈́̎̓̾̕͠͠Ę̷̡̡̤͈̼̱͍̗̪̣̮̯̯̞̼͈̻̥͔̜͎̦̱̲͙̀̒̆̂̉̎́̇͜͜x̶̲͍̘͈̯̓̓͗͒̉̉̓̓̓͑͛̚͘͠p̸͎̞̭̏̇̀̏̾̍͋͒͛̇̏̆̌͒͝l̶͇̞̝͎̘̭̫̱̞̆̍́̅͑͛͑̒͂̔̋͋̅̂̓͛ṓ̶̢̢̢̦̱̜̹̲̙̮̩̦̮͇̝͙̭̝̳͉͖̕͜ͅi̶̛̫̫̦̰̘͍̓̊͛̈͆͐̅͑̈̀̏͒͠t̸̛̛͙̙̤͓͇̙̪̠̠̺̼̩̪̻͐͊̋̋̓͂̌̆͑̂̄̌͝ͅs̴̛̟͕̟̮̙̲͈̫̖̮̗͐̀̆̌̂̀̿͊̒̕̕ͅͅ"
 
 task.spawn(function()
 	game["Run Service"].RenderStepped:Connect(function()
@@ -25,7 +25,7 @@ task.spawn(function()
 			)
 
 			-- Apply the rotation to the current CFrame
-			emitter:Emit(math.random(1, 2))
+			emitter:Emit(1)
 			rootPart.CFrame = rootPart.CFrame * randomRotation
 		end
 	end)
@@ -60,7 +60,7 @@ charMesh.BodyPart = Enum.BodyPart.Torso
 box.Size = Torso.Size + Vector3.new(0.05,0.05,0.05)
 box.Anchored = false -- Set before welding
 box.Material = Enum.Material.Neon
-box.Transparency = 0.25
+box.Transparency = 0.5
 box.Color = Color3.new(0, 0.6, 0)
 box.CanCollide = false -- Ensure it doesn't block movement
 box.Parent = char
@@ -71,3 +71,14 @@ local wc = Instance.new("WeldConstraint")
 wc.Parent = box
 wc.Part0 = box
 wc.Part1 = Torso
+
+game.workspace.Cutscenes.Atoms.sphere.Color = Color3.new(0,0,0)
+game.workspace.Cutscenes.Atoms.sphere.Material = Enum.Material.Neon
+
+for i, orb in pairs(game.workspace.Cutscenes.Atoms.sphere.Model:GetDescendants()) do
+	if orb:IsA("BasePart") then
+		orb.Color = Color3.new(0,1,0)
+		orb.Material = Enum.Material.ForceField
+	end
+end
+
