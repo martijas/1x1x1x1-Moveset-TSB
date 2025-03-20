@@ -76,6 +76,7 @@ game.workspace.Cutscenes.Atoms.sphere.Color = Color3.new(0,0,0)
 game.workspace.Cutscenes.Atoms.sphere.Material = Enum.Material.Neon
 local gui = game.ReplicatedStorage.Resources.BossHP2:Clone()
 gui.Parent = plr.PlayerGui
+
 for i, v in pairs(gui.Frame:GetChildren()) do
 	if v.Name == "ImageLabel" then 
 		v:Destroy()
@@ -107,4 +108,7 @@ for i, orb in pairs(game.workspace.Cutscenes.Atoms.sphere.Model:GetDescendants()
 		orb.Material = Enum.Material.ForceField
 	end
 end
+
+if char:FindFirstChild("Shirt") then char.Shirt:Destroy() end
+
 
